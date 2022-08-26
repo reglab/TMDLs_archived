@@ -36,21 +36,21 @@ for (state in states) {
   if (raw$count != 0) {
     # We're interested in information that is encoded into nested dataframes-
     # so we unnest them
-    state_data <- raw$items %>% unnest(actions, names_repair='universal') %>%
-      unnest(associatedWaters, names_repair='universal') %>%
-      unnest(specificWaters, names_repair='universal')
+    state_data <- raw$items %>% unnest(actions, names_repair='universal', keep_empty=T) %>%
+      unnest(associatedWaters, names_repair='universal', keep_empty=T) %>%
+      unnest(specificWaters, names_repair='universal', keep_empty=T)
     
     # Deals with Missouri, actions with missing values for `parameters`
     if (state=='MO') {
       state_data$parameters <- sapply(state_data$parameters, as.data.frame)
     }
-    state_data <- unnest(state_data, parameters, names_repair='universal')
+    state_data <- unnest(state_data, parameters, names_repair='universal', keep_empty=T)
     
     # Deals with actions with missing values for `associatedPollutants`
     if (state != 'OR') { # Issue with OR here
       state_data$associatedPollutants...13 <- sapply(state_data$associatedPollutants...13, as.data.frame)
     }
-    state_data <- unnest(state_data, associatedPollutants...13, names_repair='universal')
+    state_data <- unnest(state_data, associatedPollutants...13, names_repair='universal', keep_empty=T)
     
     # If the state includes data on TMDL date
     if (typeof(state_data$TMDLReportDetails) == 'list') {
@@ -68,7 +68,7 @@ for (state in states) {
       if (state != 'PR') { # Issue here with PR data
         state_permit_data$permits <- sapply(state_permit_data$permits, as.data.frame)
       }
-      state_permit_data <- unnest(state_permit_data, permits, names_repair='universal')
+      state_permit_data <- unnest(state_permit_data, permits, names_repair='universal', keep_empty=T)
       state_permit_data <- select(state_permit_data, any_of(c('actionIdentifier', 'NPDESIdentifier')))
     }
     
@@ -91,5 +91,5 @@ for (state in states) {
     print(paste(state, 'done'))
   }
 }
-write.csv(data, 'all_actions.csv')
-write.csv(permit_data, 'all_actions_permit_data.csv')
+write.csv(data, 'all_actions(2).csv')
+write.csv(permit_data, 'all_actions_permit_data(2).csv')
