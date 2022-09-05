@@ -68,7 +68,7 @@ for (state in states) {
       if (state != 'PR') { # Issue here with PR data
         state_permit_data$permits <- sapply(state_permit_data$permits, as.data.frame)
       }
-      state_permit_data <- unnest(state_permit_data, permits, names_repair='universal', keep_empty=T)
+      state_permit_data <- unnest(state_permit_data, permits, names_repair='universal')
       state_permit_data <- select(state_permit_data, any_of(c('actionIdentifier', 'NPDESIdentifier')))
     }
     
