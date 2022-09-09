@@ -1,6 +1,7 @@
 
 # This script uses the EPA ArcGIS REST service to download a linkage table 
-# between ATTAINS Assessment Unit IDs and their associated HUC-12 code.
+# between ATTAINS Assessment Unit IDs and their associated HUC-12 code. According
+# to the metadata, this table should be current as of June 2020.
 # 
 # Details on scraping this table: https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/3 
 # Metadata: https://edg.epa.gov/metadata/catalog/search/resource/details.page?uuid=%7B20F11BD0-05FA-4F36-868E-6530B8F2BAD6%7D 
