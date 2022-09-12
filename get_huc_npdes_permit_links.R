@@ -1,6 +1,7 @@
 
 # This script uses the EPA ArcGIS REST service to download a linkage table 
-# between NPDES Permit IDs and their associated HUC-12 code.
+# between NPDES Permit IDs and their associated HUC-12 code. According
+# to the metadata, this layer is current as of 2016.
 # 
 # Details on scraping this table: https://watersgeo.epa.gov/arcgis/rest/services/OWRAD_NP21/NPDES_NP21/MapServer/0
 # Metadata: https://edg.epa.gov/metadata/catalog/search/resource/details.page?uuid=%7B091FC504-8762-8E7F-DCD7-513F648BC5B5%7D 
