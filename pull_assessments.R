@@ -11,7 +11,7 @@
 # Related script: `pull_actions.R`.
 # 
 # Author: Ryan Treves
-# Updated: 09/09/22
+# Updated: 09/19/22
 
 library(jsonlite)
 library(tidyr)
@@ -63,6 +63,7 @@ for (state in states) {
           (typeof(state_year_data$impairedWatersInformation$listingInformation) == 'list')) {
           state_year_data$cycle_first_listed <- state_year_data$impairedWatersInformation$listingInformation$cycleFirstListedText
           state_year_data$cycle_scheduled_for_TMDL <- state_year_data$impairedWatersInformation$listingInformation$cycleScheduledForTMDLText
+          state_year_data$CWA303dPriorityRankingText <- state_year_data$impairedWatersInformation$listingInformation$CWA303dPriorityRankingText
         } else {
         state_year_data['cycle_first_listed'] <- NA
         state_year_data['cycle_scheduled_for_TMDL'] <- NA
@@ -99,6 +100,7 @@ for (state in states) {
                                                    'cycle_first_listed',
                                                    'cycleLastAssessedText',
                                                    'cycle_scheduled_for_TMDL',
+                                                   'CWA303dPriorityRankingText',
                                                    'assessment_date')))
       
       state_data <- plyr::rbind.fill(state_data, state_year_data)
