@@ -91,5 +91,5 @@ for (state in states) {
     print(paste(state, 'done'))
   }
 }
-write.csv(data, 'all_actions(2).csv')
-write.csv(permit_data, 'all_actions_permit_data(2).csv')
+write.csv(data, 'all_actions.csv')
+write.csv(permit_data, 'all_actions_permit_data.csv')
